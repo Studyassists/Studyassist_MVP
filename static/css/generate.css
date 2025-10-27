@@ -4,6 +4,7 @@ body {
   background: #f0f4ff;
   color: #fff;
   background-color: #1e4ea8;
+
 }
 
 .container {
@@ -104,11 +105,12 @@ ul.nav > li > a.active {
 /* Sidebar */
 .sidebar {
   width: 250px;
-  background: #1e4ea8;
+  background: #f1f3f5;
   padding: 5px 20px;
   transition: all 0.3s ease;
   position: relative;
   z-index: 11111;
+  color: rgba(0, 0, 0, 0.6) !important;
 }
 .brand {
   font-size: 25px;
@@ -140,8 +142,11 @@ ul.nav > li > a.active {
 }
 
 .sidebar.collapsed {
-  width: 50px;
+  width: 20px;
+  padding: 0px 0px;
 }
+
+
 
 .sidebar-content {
   transition: opacity 0.3s ease;
@@ -167,33 +172,40 @@ ul.nav > li > a.active {
   display: block;
 }
 
+.upload-icon-collapsed {
+  display: none !important;
+}
+
 /* Toggle button */
 .toggle-btn {
   position: absolute;
   top: 10px;
   right: 0px;
-  background: #1e4ea8;
-  color: white;
+  background: #f1f3f5;
+  color: rgba(0, 0, 0, 0.6);
   border-radius: 0 5px 5px 0;
-  padding: 8px 10px;
+  padding: 8px 5px;
   cursor: pointer;
   font-size: 18px;
   transition: background 0.3s;
   z-index: 1001;
+  border: 1px solid #dee2e6;
 }
 
 .sidebar.collapsed .toggle-btn {
-  right: 25px;
+  right: 0px;
 }
 
 .toggle-btn:hover {
   background: #15408a;
+  color: white;
+  border: none;
 }
 
 /* Upload box */
 .upload-box {
-  background: #2c65d1;
-  border: 2px dashed #fff;
+
+  border: 2px dashed #ced4da;
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -225,6 +237,7 @@ ul.nav > li > a.active {
   position: relative;
   padding-top: 25px; /* Space for the floating value */
   margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .range-container {
@@ -237,7 +250,7 @@ ul.nav > li > a.active {
 span#rangeValue {
   position: absolute;
   top: 0;
-  color: #fff;
+  /** color: #fff; **/
   font-size: 14px;
   transform: translateX(-50%); /* Crucial for centering the text on the thumb */
   /* JavaScript will handle the 'left' property */
@@ -293,7 +306,7 @@ span#rangeValue {
   position: absolute;
   bottom: 0; /* Position below the track */
   left: 0;
-  color: #fff; /* Use a subtle color */
+  /*  color: #fff; Use a subtle color */
   font-size: 14px;
 }
 
@@ -338,7 +351,7 @@ ul li {
 .delete-file-btn {
   background: none;
   border: none;
-  color: white;
+  color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   font-size: 14px;
   padding: 5px;
@@ -349,6 +362,12 @@ ul li {
 .delete-file-btn:hover {
   color: #d9534f;
   opacity: 1;
+}
+
+.uploaded-file-item{
+  background-color: transparent;
+  padding: 0px;
+  margin-bottom: 15px;
 }
 
 /* Ensure the file name uses available space */
@@ -381,9 +400,10 @@ ul li {
 }
 
 /* Cards, buttons, etc. */
+/* 
 .card {
   background: #1e4ea8;
-  /* background: #eaf0ff; */
+  background: #eaf0ff; 
   border-radius: 15px;
   color: #eaf0ff;
   padding: 20px;
@@ -391,8 +411,52 @@ ul li {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card h2 {
-  color: #eaf0ff;
+ */
+
+.card, .features {
+  margin-bottom: 50px;
+  line-height: 1.5;
+}
+
+.card label, .features label {
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 10px;
+}
+
+.card h2, .features h2 {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 10px;
+}
+
+.range-labels, span#rangeValue {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.features {
+  margin-bottom: 50px;
+}
+
+
+.features h2 {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.summary-design, .features .summary-design, .card .summary-design, #answerText {
+  color: black;
+  border: 1px solid #dee2e6;
+  padding: 15px;
+  border-radius: 5px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  background-color: rgb(248, 249, 250);
+
+}
+
+
+#answerText {
+white-space: pre-wrap;
+background-color: rgb(248, 249, 250, 0.8);
+
 }
 
 textarea {
@@ -410,18 +474,20 @@ textarea::placeholder {
   text-align: left;
 }
 
-button, .mybutton {
+.mybutton {
   background-color: #ff7a00;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 
 
-button:hover, mybutton:hover {
+
+.mybutton:hover {
   background-color: #15408a;
   transition: all 0.5s;
 }
@@ -488,20 +554,12 @@ display: none;
   display: none;
 }
 
-/* Update the existing Upload box to control padding/margins */
-.upload-box {
-    background: #2c65d1;
-    border: 2px dashed #fff; /* Dashed white border */
-    padding: 20px 10px; /* Increased top/bottom padding for space */
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 10px;
-}
+
 
 /* 1. Style the Upload Icon */
 .upload-box .upload-icon {
     font-size: 30px;
-    color: white;
+    color: #1e4ea8;
     margin-bottom: 1px;
 }
 
@@ -604,7 +662,7 @@ header{
     align-items: center;
     background: #1e4ea8;
     color: white;
-    padding: 15px 20px;
+    padding: 18px 7px;
     position: sticky;
     top: 0;
     z-index: 1001;
@@ -684,7 +742,7 @@ html, body {
   display: flex;
   flex-direction: column;
   background: #fff;
-  color: #2c65d1;
+  color: rgba(0, 0, 0, 0.8);
   padding-bottom: 10px;
 }
 
@@ -702,4 +760,110 @@ footer {
   padding: 10px 0;
   position: relative; /* normal flow */
   margin-top: auto;   /* push it to the bottom of main */
+}
+
+
+.answer-correct {
+  border: 2px solid #28a745; /* Bootstrap success green */
+  background-color: #e9f9ee;
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.answer-wrong {
+  border: 2px solid #dc3545; /* Bootstrap danger red */
+  background-color: #fde8e8;
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+
+#quizList {
+
+  border-radius: 0.75rem;
+  border: 1px solid white;
+  padding: 1.5rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  margin: 0px 0px 10px 0px;
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+
+.list-group-item:last-child  {
+  border-bottom: none;
+}
+
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+.form-check {
+  margin-top: 0.5rem;
+}
+
+.badge {
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+      
+}
+
+
+/**** Flash Messages *****/
+
+      /* Flash container */
+.flash-container {
+  margin: 1rem auto;
+}
+
+/* Base flash style */
+.flash {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  animation: slideIn 0.3s ease;
+  color: #fff;
+}
+
+/* Variants (like Bootstrap: success, error, warning, info) */
+.flash-success { background-color: #198754; }   /* green */
+.flash-error   { background-color: #dc3545; }   /* red */
+.flash-warning { background-color: #ffc107; color: #212529; } /* yellow */
+.flash-info    { background-color: #0dcaf0; color: #212529; } /* light blue */
+
+/* Close button */
+.flash-close {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+
+.flash {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* Animation */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

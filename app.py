@@ -213,7 +213,7 @@ def index():
 
     # GET: render whatever we have in session (summary shown if present)
     return render_template(
-        "index.html",
+        "generate.html",
         filename=session.get("uploaded_filename"),
         summary=session.get("summary_text")
     )

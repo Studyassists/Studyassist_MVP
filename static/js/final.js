@@ -274,8 +274,8 @@ let correctCount = 0;
 
       if (feedbackDiv) {
         feedbackDiv.innerHTML = ok 
-          ? `<span class="text-success fw-bold">✅ Correct!</span>` 
-          : `<span class="text-danger fw-bold">❌ Wrong. Correct answer: ${a.correct}</span>`;
+          ? `<span class="text-success fw-bold answer-correct d-inline-block">✅  Correct!</span>` 
+          : `<span class="text-danger fw-bold answer-wrong d-inline-block">❌  Wrong. Correct answer: ${a.correct}</span>`;
       }
     });
 
@@ -293,7 +293,6 @@ let correctCount = 0;
           margin: 10px 0 0 0;
           font-size: 14px;
           font-weight: 700;
-          color: white;
         ">
           Your Score: <strong>${correctCount}/${total}</strong> (${pct}%)
         </div>
@@ -331,8 +330,8 @@ let correctCount = 0;
     if (!exportDiv) return;
     exportDiv.innerHTML = `
       <h6 class="mt-4">📤 Export Options</h6>
-      <button id="exportCsvBtn" class="btn btn-outline-secondary me-2">Export CSV</button>
-      <button id="exportPdfBtn" class="btn btn-outline-secondary">Export PDF</button>
+      <button id="exportCsvBtn" class="btn btn-outline-secondary me-2 mybutton">Export CSV</button>
+      <button id="exportPdfBtn" class="btn btn-outline-secondary mybutton">Export PDF</button>
     `;
     const exportCsvBtn = $("exportCsvBtn");
     const exportPdfBtn = $("exportPdfBtn");
@@ -427,3 +426,6 @@ let correctCount = 0;
     }
 
 });
+
+
+
